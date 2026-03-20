@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h2>Applications for {{ job.title }}</h2>
+
+    {% for app in applications %}
+    <p><strong>Name:</strong> {{ app.name }}</p>
+    <p><strong>Email:</strong> {{ app.email }}</p>
+    <p><a href="{{ app.resume.url }}">Download Resume</a></p>
+    <hr>
+    {% empty %}
+    <p>No applications yet.</p>
+    {% endfor %}
+
+    <a href="{% url 'view_applications' job.id %}">View Applications</a>
+</body>
+</html>

@@ -1,0 +1,84 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+{% load static %}
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Job Portal</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body>
+
+    <h1>Welcome to Job Portal</h1>
+    <p>This is My First Django Project</p>
+
+    <h2>Available Jobs</h2>
+
+    {% for job in jobs %}
+
+        <h3>{{ job.title }}</h3>
+        <p><strong>Salary:</strong> {{ job.salary }}</p>
+        <p><strong>Description:</strong> {{ job.description }}</p>
+
+        <a href="{% url 'apply_job' job.id %}">Apply Now</a>
+
+        <hr>
+
+    {% empty %}
+        <p>No jobs available</p>
+    {% endfor %}
+
+
+    <form method="GET">
+
+        <input type="text" name="q" placeholder="Search jobs...">
+        <button type="submit">Search</button>
+    </form>
+
+    <hr>
+
+</body>
+</html> -->
+
+<!DOCTYPE html>
+<html lang="en">
+{% load static %}
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Job Portal</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body>
+
+    <div class="container">
+
+        <h1>Welcome to Job Portal</h1>
+        <p style="text-align:center;">This is My First Django Project</p>
+
+        <!-- Search Box -->
+        <form method="GET" class="search-box">
+            <input type="text" name="q" placeholder="Search jobs...">
+            <button type="submit" class="button">Search</button>
+        </form>
+
+        <h2>Available Jobs</h2>
+
+        {% for job in jobs %}
+            <div class="job-card">
+                <h3>{{ job.title }}</h3>
+                <p><strong>Company:</strong> {{ job.company }}</p>
+                <p><strong>Location:</strong> {{ job.location }}</p>
+                <p><strong>Salary:</strong> ₹{{ job.salary }}</p>
+                <p><strong>Description:</strong> {{ job.description }}</p>
+
+                <a href="{% url 'apply_job' job.id %}" class="button">Apply Now</a>
+            </div>
+        {% empty %}
+            <p>No jobs available</p>
+        {% endfor %}
+
+    </div>
+
+</body>
+</html>
