@@ -18,7 +18,3 @@ This is a Job Portal web application developed using Django. It allows users to 
 - Database: SQLite / MySQL
 
 ---
-⚙️ Installation Steps
-1. Clone the repository  
-```bash
-git clone https://github.com/yourusername/job-portal.git
